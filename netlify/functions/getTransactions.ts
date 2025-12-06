@@ -2,16 +2,14 @@ import { Handler } from "@netlify/functions";
 import { Client } from "pg";
 
 export const handler: Handler = async () => {
+  const client = new Client({
+    connectionString: process.env.NEON_DB_URL,
+    ssl: { rejectUnauthorized: false }
+  });
+
   try {
-    const client = new Client({
-      connectionString: process.env.NEON_DB_URL,
-      ssl: { rejectUnauthorized: false }
-    });
-
     await client.connect();
-
-    const result = await client.query("SELECT * FROM reservations ORDER BY date DESC");
-
+    const result = await client.query("SELECT * FROM transactions ORDER BY date DESC");
     await client.end();
 
     return {
@@ -22,11 +20,10 @@ export const handler: Handler = async () => {
         "Access-Control-Allow-Origin": "*"
       }
     };
-  } catch (err) {
+  } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: err.message })
+      body: JSON.stringify({ error: error.message })
     };
   }
 };
-
