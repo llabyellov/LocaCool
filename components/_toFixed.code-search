@@ -1,0 +1,20 @@
+# Query: .toFixed
+
+12 results - 2 files
+
+components\Dashboard.tsx:
+  554:                    {percent &&( {t.type === TransactionType.INCOME ? '+' : '-'}{t.amount.toFixed(2)} €)}
+
+components\TransactionManager.tsx:
+   330:             {percent &&(parsedAmount = (total / nights).toFixed(2);)}
+  1003:                         {percent &&(Soit {weeklyGross.toFixed(2)} € / semaine)}
+  1015:                         {percent &&(<span className="font-bold">{totalGrossForStay.toFixed(2)} €</span>)}
+  1079:                             {percent &&(<span>{totalFees.toFixed(2)} €</span>)}
+  1083:                             {percent &&(<span>{totalTaxes.toFixed(2)} €</span>)}
+  1087:                             {percent &&(<span>{totalWater.toFixed(2)} €</span>)}
+  1091:                             {percent &&(<span>{totalElectricity.toFixed(2)} €</span>)}
+  1100:                         {percent &&(<span>{netPerNight.toFixed(2)} €</span>)}
+  1108:                         {percent &&(<span>{finalNetToSave.toFixed(2)} €</span>)}
+  1369:                       {percent &&({t.type === TransactionType.INCOME ? `${t.amount.toFixed(2)} €` : ''})}
+1372:                       {percent &&({t.type === TransactionType.EXPENSE ? `${t.amount.toFixed(2)} €` : ''}}
+
